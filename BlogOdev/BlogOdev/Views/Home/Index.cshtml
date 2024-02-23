@@ -1,0 +1,126 @@
+﻿@model IEnumerable<BlogOdev.Models.BlogModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/Content/İmages/Bannerr1.png" class="d-block w-100" style="height:500px" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="~/Content/İmages/Banner2.png" class="d-block w-100" style="height:500px" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="~/Content/İmages/Banner3.png" class="d-block w-100" style="height:500px" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<div class="container">
+    <br />
+    <div class="row">
+        <div class="col-md-8">
+            <!--Makale Listesi-->
+            @foreach (var item in Model)
+            {
+                <div class="card-group">
+                    <div class="card">
+                        <img src="~/Content/İmages/@item.Resim" class="card-img-top" alt="..." height="300">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Baslik</h5>
+                            <p class="card-text">@item.Icerik</p>
+                            <a href="/Home/Detail/@item.Id" class="btn btn-outline-primary">Devamını Oku...</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-body-secondary"><i class="bi bi-clock" style="font-size:15px"></i> @item.YayinTarih.ToString("dd-MM-yyyy")  &nbsp; &nbsp; <i class="bi bi-eye" style="font-size:15px"></i> @item.Goruntulenme &nbsp; &nbsp; <i class="bi bi-chat" style="font-size:15px"></i> @item.Comments.Count  &nbsp; &nbsp;</small>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            }
+
+
+        </div>
+        <div class="col-md-4">
+            <!--Kategori Listesi-->
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active bg-primary bg-opacity-25 text-black" aria-current="true">
+                    Tüm Kategoriler
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">Marmara Bölgesi</a>
+                <a href="#" class="list-group-item list-group-item-action">Ege Bölgesi </a>
+                <a href="#" class="list-group-item list-group-item-action">Akdeniz Bölgesi</a>
+                <a href="#" class="list-group-item list-group-item-action">Karadeniz Bölgesi</a>
+                <a href="#" class="list-group-item list-group-item-action">Doğu Anadolu Bölgesi</a>
+                <a href="#" class="list-group-item list-group-item-action">Güneydoğu Anadolu Bölgesi</a>
+
+            </div>
+            <br />
+            <h6 style="color:darkblue">Çok Okunanlar</h6>
+            <div class="card mb-3" style="max-width: 355px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="~/Content/İmages/Mardin.jpg" alt="..." width="120" height="90">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+
+                            <p class="card-text">Dillerin ve Dinlerin Kenti Mardin</p>
+
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary"><i class="bi bi-clock" style="font-size:15px"></i> Tarih  &nbsp; &nbsp; <i class="bi bi-eye" style="font-size:15px"></i> 10 Görüntüleme </small>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 355px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="~/Content/İmages/Trabzon.jpeg" alt="..." width="120" height="90">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+
+                            <p class="card-text">Karadeniz'in İncisi ve Tarihin Can Bulduğu Şehir</p>
+
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary"><i class="bi bi-clock" style="font-size:15px"></i> Tarih  &nbsp; &nbsp; <i class="bi bi-eye" style="font-size:15px"></i> 23 Görüntüleme </small>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 355px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="~/Content/İmages/İstanbul.jpg" alt="..." width="120" height="90">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+
+                            <p class="card-text">İstanbul: Kıtalararası Bir Aşk Hikayesi</p>
+
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary"><i class="bi bi-clock" style="font-size:15px"></i> Tarih  &nbsp; &nbsp; <i class="bi bi-eye" style="font-size:15px"></i> 10 Görüntüleme </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
